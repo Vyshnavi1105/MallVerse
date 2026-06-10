@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MallVerse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="assets/videos/14987699_1080_1920_60fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+<title>MallVerse | Luxury Shopping Experience</title>        <input type="text" id="search-box" placeholder="Search products..." onkeyup="searchProducts()">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shops">Shops</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#cart">Cart <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="content">
+            <h1>🏬 MallVerse</h1>
+
+<h3>Luxury Shopping Experience</h3>
+
+<p class="tagline">
+    Discover Fashion • Electronics • Beauty • Food Court • Lifestyle
+</p>
+
+<p class="welcome-text">
+    ✨ Welcome to MallVerse – Where Every Store Has a Story ✨
+</p>
+
+<a href="#shops" class="main-btn">
+    Enter Mall ✨
+</a>
+        </div>
+    </section>
+
+    <section class="shops-section" id="shops">
+        <h2 class="section-title">Choose Your Shop</h2>
+
+        <div class="shop-container">
+
+            <div class="shop-card" onclick="showShop('clothing')">
+                <h3>👗 Fashion Store</h3>
+                <p>Kurtas, Jeans, Tops, Nightwear</p>
+                <button>Open Shop</button>
+            </div>
+
+            <div class="shop-card" onclick="showShop('juice')">
+                <h3>🥤 Juice Bar</h3>
+                <p>Fresh juices, shakes and smoothies</p>
+                <button>Open Shop</button>
+            </div>
+
+            <div class="shop-card" onclick="showShop('electronics')">
+                <h3>📱 Electronics</h3>
+                <p>Mobiles, headphones and gadgets</p>
+                <button>Open Shop</button>
+            </div>
+
+            <div class="shop-card" onclick="showShop('beauty')">
+                <h3>💄 Beauty Store</h3>
+                <p>Makeup, skincare and perfumes</p>
+                <button>Open Shop</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <h2 class="section-title" id="shop-title">Select a shop to view products</h2>
+
+        <div class="category-buttons" id="category-buttons"></div>
+
+        <div class="product-container" id="product-container">
+            <p class="empty-text">Click any shop above to explore products.</p>
+        </div>
+    </section>
+
+    <section class="cart-section" id="cart">
+        <h2 class="section-title">🛒 Your Cart</h2>
+
+        <div id="cart-items">
+            <p class="empty-text">Your cart is empty.</p>
+        </div>
+
+        <h3 id="total-price">Total: ₹0</h3>
+        <button class="order-btn" onclick="placeOrder()">Place Order</button>
+    </section>
+
+    <footer>
+    <h3>🏬 MallVerse</h3>
+    <p>Luxury Virtual Shopping Mall Frontend Project</p>
+    <p>Built using HTML, CSS and JavaScript</p>
+    <p>📧 support@mallverse.com | 📍 India</p>
+    <p>© 2026 MallVerse. All Rights Reserved.</p>
+</footer>
+
+    <div class="popup" id="success-popup">
+    <div class="popup-box">
+        <h2>✅ Order Placed!</h2>
+        <p>Thank you for shopping at MallVerse ❤️</p>
+        <p id="order-id"></p>
+        <button onclick="closePopup()">Continue Shopping</button>
+    </div>
+</div>
+    <div id="product-modal" class="popup">
+    <div class="popup-box">
+
+        <img id="modal-img" class="product-img">
+
+        <h2 id="modal-name"></h2>
+
+        <p class="rating">⭐⭐⭐⭐⭐ 4.8</p>
+
+        <h3 id="modal-price"></h3>
+
+        <p id="modal-desc">
+            Premium Quality Product
+        </p>
+
+        <button id="modal-cart-btn">
+            Add to Cart
+        </button>
+
+        <br><br>
+
+        <button onclick="closeProductModal()">
+            Close
+        </button>
+
+    </div>
+</div>
+    <div id="product-modal" class="popup">
+    <div class="popup-box">
+
+        <img id="modal-img" class="product-img">
+
+        <h2 id="modal-name"></h2>
+
+        <p class="rating">⭐⭐⭐⭐⭐ 4.8</p>
+
+        <h3 id="modal-price"></h3>
+
+        <p id="modal-desc">Premium quality product with stylish design.</p>
+
+        <button id="modal-cart-btn">Add to Cart</button>
+
+        <br><br>
+
+        <button onclick="closeProductModal()">Close</button>
+
+    </div>
+</div>
+
+<div id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
